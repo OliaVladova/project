@@ -1,35 +1,32 @@
 package repository;
 
-import users.User;
+import users.UserOfTV;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class UserRepository implements Repository<User> {
-    private Map<String, User> users;
+public class UserRepository {
+    private Map<String, UserOfTV> users;
 
     public UserRepository() {
         this.users = new LinkedHashMap<>();
     }
 
-    @Override
-    public void add(User element) {
+    public void add(UserOfTV element) {
             this.users.put(element.getName(),element);
     }
 
-    @Override
-    public boolean remove(User element) {
+    public boolean remove(UserOfTV element) {
         return this.users.remove(element.getName())!=null;
     }
 
-    public User getByName(String name) {
+    public UserOfTV getByName(String name) {
         return this.users.get(name);
     }
 
-    @Override
-    public Collection<User> getEntities() {
+    public Collection<UserOfTV> getEntities() {
         return Collections.unmodifiableCollection(this.users.values());
     }
 }

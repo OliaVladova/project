@@ -1,35 +1,32 @@
 package repository;
 
-import channels.TVChannel;
+import channels.Channel;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ChannelRepository implements Repository<TVChannel> {
-    private Map<String,TVChannel> channels;
+public class ChannelRepository {
+    private Map<String, Channel> channels;
 
     public ChannelRepository() {
         this.channels = new LinkedHashMap<>();
     }
 
-    @Override
-    public void add(TVChannel element) {
+    public void add(Channel element) {
         this.channels.putIfAbsent(element.getName(), element);
     }
 
-    @Override
-    public boolean remove(TVChannel element) {
+    public boolean remove(Channel element) {
         return this.channels.remove(element.getName())!=null;
     }
 
-    public TVChannel getByName(String name) {
+    public Channel getByName(String name) {
         return this.channels.get(name);
     }
 
-    @Override
-    public Collection<TVChannel> getEntities() {
+    public Collection<Channel> getEntities() {
         return Collections.unmodifiableCollection(this.channels.values());
     }
 }

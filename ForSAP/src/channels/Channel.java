@@ -1,6 +1,6 @@
 package channels;
 
-public class Channel implements TVChannel{
+public class Channel{
     private int id;
     private String name;
     private double price;
@@ -11,7 +11,6 @@ public class Channel implements TVChannel{
         this.setPrice(price);
     }
 
-    @Override
     public int getId() {
         return this.id;
     }
@@ -22,8 +21,6 @@ public class Channel implements TVChannel{
         }
         this.id = id;
     }
-
-    @Override
     public String getName() {
         return this.name;
     }
@@ -35,7 +32,6 @@ public class Channel implements TVChannel{
         this.name = name;
     }
 
-    @Override
     public double getPrice() {
         return this.price;
     }

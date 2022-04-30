@@ -1,16 +1,16 @@
 package channelCategories;
 
-import channels.TVChannel;
+import channels.Channel;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-public class ChannelCategory implements Category<TVChannel>{
+public class ChannelCategory {
     private int id;
     private String type;
     private double price;
-    private Collection<TVChannel> channels;
+    private Collection<Channel> channels;
 
     public ChannelCategory(int id, String type, double price) {
         this.setId(id);
@@ -19,23 +19,19 @@ public class ChannelCategory implements Category<TVChannel>{
         this.channels = new ArrayList<>();
     }
 
-    @Override
     public int getId() {
         return this.id;
     }
 
-    @Override
     public String getType() {
         return this.type;
     }
 
-    @Override
     public double getPrice() {
         return this.price;
     }
 
-    @Override
-    public Collection<TVChannel> getChannels() {
+    public Collection<Channel> getChannels() {
         return Collections.unmodifiableCollection(this.channels);
     }
 

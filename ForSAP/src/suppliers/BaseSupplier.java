@@ -1,31 +1,28 @@
 package suppliers;
 
-import Contracts.Contract;
-import channels.TVChannel;
+import Contracts.BaseContract;
+import channels.Channel;
 import repository.ChannelRepository;
-import repository.Repository;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class BaseSupplier implements Supplier<Contract>{
+public class BaseSupplier {
     private int id;
     private String name;
     private double price;
-    private String deadline;
-    private Repository<TVChannel> channels;
-    private Collection<Contract> contracts;
+    private ChannelRepository channels;
+    private Collection<BaseContract> contracts;
 
-    public BaseSupplier(int id, String name,double price, String deadline) {
+    public BaseSupplier(int id, String name,double price) {
         this.setId(id);
         this.setName(name);
         this.setPrice(price);
-        this.deadline = deadline;
         this.channels = new ChannelRepository();
         this.contracts = new ArrayList<>();
     }
 
-    @Override
+
     public int getId() {
         return this.id;
     }
@@ -49,12 +46,11 @@ public class BaseSupplier implements Supplier<Contract>{
         this.name = name;
     }
 
-    @Override
     public double getPrice() {
         return this.price;
     }
 
-    private void setPrice(double price) {
+    public void setPrice(double price) {
         if(price<=0){
             throw new IllegalArgumentException("Price cannot be below or equal to zero!");
         }
@@ -62,16 +58,10 @@ public class BaseSupplier implements Supplier<Contract>{
     }
 
 
-    @Override
-    public String getDeadline() {
-        return this.deadline;
-    }
-
-    @Override
-    public Collection<TVChannel> getChannels() {
+    public Collection<Channel> getChannels() {
         return this.channels.getEntities();
     }
-    public Collection<Contract> getContracts() {
+    public Collection<BaseContract> getContracts() {
         return this.contracts;
     }
 
