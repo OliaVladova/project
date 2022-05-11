@@ -14,7 +14,7 @@ public class BuyCategory extends JDialog {
 
     public BuyCategory(Frame parent, int id) {
         super(parent);
-        setTitle("BuyCategory");
+        setTitle("Buy Category");
         setContentPane(BuyCategoryPanel);
         setMinimumSize(new Dimension(450, 474));
         setModal(true);

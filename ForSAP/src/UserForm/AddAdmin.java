@@ -55,7 +55,7 @@ public class AddAdmin extends JDialog {
         user = addUserToDB(name, email, password);
         if (user != null) {
             JOptionPane.showMessageDialog(this, "Successfully register new admin", "Success",
-                    JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.INFORMATION_MESSAGE);
             dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Fail to register new admin", "Try again",
@@ -65,6 +65,7 @@ public class AddAdmin extends JDialog {
 
 
     private UserOfTV addUserToDB(String name, String email, String password) {
+        UserOfTV user = null;
         if (name == null || name.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Enter name!", "Try again",
                     JOptionPane.ERROR_MESSAGE);
@@ -77,7 +78,7 @@ public class AddAdmin extends JDialog {
                     JOptionPane.showMessageDialog(this, "Enter password", "Try again",
                             JOptionPane.ERROR_MESSAGE);
                 } else {
-                    UserOfTV user = null;
+
                     try {
                         Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/tv_administration", "root", "OliaVladova2303");
                         Statement statement = connect.createStatement();

@@ -41,18 +41,25 @@ public class SetPercentageForm extends JDialog {
 
     private void setPercentage() {
         String name = nameField.getText();
-        double percentageInput = Double.parseDouble(percentageField.getText());
-        double percentage;
-        if (percentageInput > 0) {
-            percentage = percentageInput * 0.01;
-        } else {
-            JOptionPane.showMessageDialog(this, "Please, enter valid percentage!", "Try again",
+        String percentageInput =percentageField.getText() ;
+
+        if (percentageInput==null||percentageInput.trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please, enter percentage!", "Try again",
                     JOptionPane.ERROR_MESSAGE);
-            percentage = 0;
+        }else {
+            double percentage = Double.parseDouble(percentageInput);
+            if (percentage > 0) {
+                percentage = percentage * 0.01;
+            } else {
+                JOptionPane.showMessageDialog(this, "Please, enter valid percentage!", "Try again",
+                        JOptionPane.ERROR_MESSAGE);
+                percentage = 0;
+            }
+            double price = retrievePrice(name);
+            double newPrice = price + price * percentage;
+            updatePrice(name, newPrice);
         }
-        double price = retrievePrice(name);
-        double newPrice = price + price * percentage;
-        updatePrice(name, newPrice);
+
     }
 
     private void updatePrice(String name, double newPrice) {

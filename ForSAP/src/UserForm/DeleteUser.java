@@ -14,7 +14,7 @@ public class DeleteUser extends JDialog{
 
     public DeleteUser(Frame parent) {
         super(parent);
-        setTitle("DeleteUser");
+        setTitle("Delete User");
         setContentPane(DeleteUserPanel);
         setMinimumSize(new Dimension(450, 474));
         setModal(true);
