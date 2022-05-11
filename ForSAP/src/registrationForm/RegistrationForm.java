@@ -57,6 +57,8 @@ public class RegistrationForm extends JDialog {
         }
         user = addUserToDB(name, email, password);
         if (user != null) {
+            JOptionPane.showMessageDialog(this, "Successful registration!", "Success",
+                    JOptionPane.INFORMATION_MESSAGE);
             dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Fail to register new user", "Try again",

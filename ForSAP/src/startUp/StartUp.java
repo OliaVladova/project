@@ -33,7 +33,7 @@ public class StartUp extends JDialog {
                 UserOfTV user = logIn.user;
 
                 if (user != null) {
-                    JOptionPane.showMessageDialog(StartUp.this, "Successful logIn!", "Try again",
+                 JOptionPane.showMessageDialog(StartUp.this, "Successful logIn!", "Try again",
                             JOptionPane.INFORMATION_MESSAGE);
                     returnRole(user);
                     int id = returnId(user);
