@@ -16,7 +16,7 @@ public class ChannelForm extends JDialog {
 
     public ChannelForm(Frame parent) {
         super(parent);
-        setTitle("Supplier");
+        setTitle("Channel");
         setContentPane(ChannelPanel);
         setMinimumSize(new Dimension(450, 474));
         setModal(true);

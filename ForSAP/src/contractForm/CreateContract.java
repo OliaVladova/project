@@ -127,6 +127,10 @@ public class CreateContract extends JDialog {
                         JOptionPane.ERROR_MESSAGE);
             }
         }
+        if (user_id==0){
+            JOptionPane.showMessageDialog(this, "Please, enter existing user!", "Try again",
+                    JOptionPane.ERROR_MESSAGE);
+        }
 
         return user_id;
     }
@@ -154,6 +158,10 @@ public class CreateContract extends JDialog {
                 JOptionPane.showMessageDialog(this, "Please, enter existing supplier!", "Try again",
                         JOptionPane.ERROR_MESSAGE);
             }
+        }
+        if (supplier_id==0){
+            JOptionPane.showMessageDialog(this, "Please, enter existing supplier!", "Try again",
+                    JOptionPane.ERROR_MESSAGE);
         }
 
         return supplier_id;

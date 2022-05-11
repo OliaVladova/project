@@ -35,31 +35,42 @@ public class AddCategory extends JDialog {
         OKButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                addChannel();
+                addCategory();
             }
         });
         setVisible(true);
     }
 
-    private void addChannel() {
+    private void addCategory() {
         String name = typeCategoryField.getText();
         String priceInput = priceField.getText();
-        if (priceInput.equals("")){
-            JOptionPane.showMessageDialog(this, "Enter price!", "Try again",
+        if (name == null || name.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Enter name!", "Try again",
                     JOptionPane.ERROR_MESSAGE);
-        }else {
-            double price = Double.parseDouble(priceInput);
-
-            ChannelCategory category = addCategoryToDB(name, price);
-            if (category != null) {
-                JOptionPane.showMessageDialog(this, "Successfully added category", "Success",
-                        JOptionPane.INFORMATION_MESSAGE);
-                dispose();
+        } else {
+            if (priceInput.equals("")) {
+                JOptionPane.showMessageDialog(this, "Enter price!", "Try again",
+                        JOptionPane.ERROR_MESSAGE);
             } else {
 
-                JOptionPane.showMessageDialog(this, "Fail to register new category!", "Try again",
-                        JOptionPane.ERROR_MESSAGE);
+                double price = Double.parseDouble(priceInput);
+                if (price <= 0) {
+                    JOptionPane.showMessageDialog(this, "Enter valid price!", "Try again",
+                            JOptionPane.ERROR_MESSAGE);
+                } else {
 
+                    ChannelCategory category = addCategoryToDB(name, price);
+                    if (category != null) {
+                        JOptionPane.showMessageDialog(this, "Successfully added category", "Success",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        dispose();
+                    } else {
+
+                        JOptionPane.showMessageDialog(this, "Fail to register new category!", "Try again",
+                                JOptionPane.ERROR_MESSAGE);
+
+                    }
+                }
             }
         }
     }

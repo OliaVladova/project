@@ -16,7 +16,7 @@ public class CategoryForm extends JDialog {
 
     public CategoryForm(Frame parent) {
         super(parent);
-        setTitle("Supplier");
+        setTitle("Category");
         setContentPane(CategoryPanel);
         setMinimumSize(new Dimension(450, 474));
         setModal(true);
